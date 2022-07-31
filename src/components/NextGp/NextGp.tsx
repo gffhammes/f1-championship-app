@@ -7,22 +7,51 @@ import { SectionsData } from './SectionsData'
 
 export const NextGp = ({ nextGp }: any) => {
 
-  const { raceName, Circuit } = nextGp;
+  const { raceName, Circuit, date, time, FirstPractice, SecondPractice, ThirdPractice, Qualifying } = nextGp;
   const { circuitName, Location } = Circuit;
   const { country, locality } = Location;
 
-  console.log(nextGp)
+  const sections = {
+    race: {
+      label: 'Race',
+      date: date,
+      time: time,
+    },
+    fpOne: {
+      label: 'FP1',
+      date: FirstPractice.date,
+      time: FirstPractice.time,
+    },
+    fpTwo: {
+      label: 'FP2',
+      date: SecondPractice.date,
+      time: SecondPractice.time,
+    },
+    fpThree: {
+      label: 'FP3',
+      date: ThirdPractice.date,
+      time: ThirdPractice.time,
+    },
+    qualifying: {
+      label: 'Quali',
+      date: Qualifying.date,
+      time: Qualifying.time,
+    },
+  }
+
   return (
-    <Container>
-      <SectionTitle>Next GP</SectionTitle>
-      <CountryFlag countryName={country} />
-      <GpInfo
-        name={raceName}
-        circuit={circuitName}
-        locality={locality}
-        country={country}
-      />
-      <SectionsData />
-    </Container>
+    <>    
+      <Container>
+        <SectionTitle>Next GP</SectionTitle>
+        <CountryFlag countryName={country} />
+        <GpInfo
+          name={raceName}
+          circuit={circuitName}
+          locality={locality}
+          country={country}
+        />
+      </Container>
+      <SectionsData sections={sections} />
+    </>
   )
 }

@@ -3,7 +3,7 @@ import axios from 'axios'
 import { NextGp } from '../src/components/NextGp/NextGp'
 
 export default function Home({ data }: any) {
-  console.log(data.MRData.RaceTable)
+  // console.log(data.MRData.RaceTable)
   const today = new Date();
 
   const nextGp = data.MRData.RaceTable.Races.find((race: any) => {
