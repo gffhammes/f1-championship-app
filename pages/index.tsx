@@ -1,6 +1,7 @@
-import { Box } from '@mui/material'
+import { Box, Stack } from '@mui/material'
 import axios from 'axios'
 import Head from 'next/head';
+import { ComingUp } from '../src/components/ComingUp/ComingUp';
 import { NextGp } from '../src/components/NextGp/NextGp'
 
 export default function Home({ data }: any) {
@@ -11,14 +12,19 @@ export default function Home({ data }: any) {
     return new Date(race.date) >= today
   })
 
+  const comingUpGps = data.MRData.RaceTable.Races.filter((race: any) => {
+    return new Date(race.date) >= today
+  })
+
   return (
     <>
       <Head>
         <title>F1 Championship App</title>
       </Head>
-      <Box component='main' sx={{ py: 5 }}>
+      <Stack component='main' sx={{ py: 5 }} spacing={7}>
         <NextGp nextGp={nextGp}/>
-      </Box>
+        <ComingUp comingUpGps={comingUpGps} />
+      </Stack>
     </>
   )
 }

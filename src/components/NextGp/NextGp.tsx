@@ -1,4 +1,4 @@
-import { Container } from '@mui/material'
+import { Box, Container } from '@mui/material'
 import React from 'react'
 import { SectionTitle } from '../Common/SectionTitle'
 import { CountryFlag } from './CountryFlag'
@@ -40,7 +40,7 @@ export const NextGp = ({ nextGp }: any) => {
   }
 
   return (
-    <>    
+    <Box>    
       <Container>
         <SectionTitle>Next GP</SectionTitle>
         <CountryFlag countryName={country} />
@@ -52,6 +52,6 @@ export const NextGp = ({ nextGp }: any) => {
         />
       </Container>
       <SectionsData sections={sections} />
-    </>
+    </Box>
   )
 }
