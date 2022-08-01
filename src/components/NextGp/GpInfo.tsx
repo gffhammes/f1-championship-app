@@ -9,16 +9,13 @@ export interface IGpInfoProps {
 }
 
 const primaryTextProps = {
-  sx: {
-    color: 'rgb(54, 54, 54)'
-  },
   fontSize: 32,
   fontWeight: 600,
 }
 
 const secondaryTextProps = {
   sx: {
-    color: 'rgba(54, 54, 54, .8)'
+    opacity: .6,
   },
 }
 
@@ -29,7 +26,7 @@ export const GpInfo = ({
   country,
 }: IGpInfoProps) => {
   return (
-    <Stack sx={{ mt: 1, mb: 3 }}>
+    <Stack sx={{ mt: 1, mb: 3, color: 'white' }}>
       <Typography {...primaryTextProps}>{name}</Typography>
       <Typography {...secondaryTextProps}>{circuit}</Typography>
       <Typography {...secondaryTextProps}>{locality} &bull; {country}</Typography>

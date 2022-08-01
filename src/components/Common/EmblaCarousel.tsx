@@ -19,7 +19,7 @@ const sxEmblaContainer = {
 const sxEmblaSlide = {
   position: 'relative',
   marginRight: '.5rem',
-  flex: '0 0 7rem',
+  flex: '0 0 7.5rem',
 }
 
 export const EmblaCarousel = (props: PropType) => {

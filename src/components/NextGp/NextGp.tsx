@@ -33,16 +33,16 @@ export const NextGp = ({ nextGp }: any) => {
       time: ThirdPractice.time,
     },
     qualifying: {
-      label: 'Quali',
+      label: 'Qualifying',
       date: Qualifying.date,
       time: Qualifying.time,
     },
   }
 
   return (
-    <Box>    
+    <Box sx={{ backgroundColor: '#363636', pt: 5, pb: 3, borderRadius: "0 0 .5rem .5rem" }}>    
       <Container>
-        <SectionTitle>Next GP</SectionTitle>
+        <SectionTitle color='light'>Next GP</SectionTitle>
         <CountryFlag countryName={country} />
         <GpInfo
           name={raceName}

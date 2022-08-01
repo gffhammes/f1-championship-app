@@ -34,7 +34,7 @@ export const GpCard = ({ gpData }: Props) => {
             alt=''
             layout='fill'
             objectFit='cover'
-            style={{ borderRadius: '.25rem' }}
+            style={{ borderRadius: '4px' }}
           />
         </Box>
         <Box>

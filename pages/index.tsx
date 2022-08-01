@@ -21,7 +21,7 @@ export default function Home({ data }: any) {
       <Head>
         <title>F1 Championship App</title>
       </Head>
-      <Stack component='main' sx={{ py: 5 }} spacing={7}>
+      <Stack component='main' spacing={4}>
         <NextGp nextGp={nextGp}/>
         <ComingUp comingUpGps={comingUpGps} />
       </Stack>

@@ -42,7 +42,7 @@ export const getFormattedWeekendDates = (gpData: any) => {
       formattedDateString = date
       return;
     }
-    formattedDateString = formattedDateString + ", " + date 
+    formattedDateString = formattedDateString + " • " + date 
   })
 
   return formattedDateString

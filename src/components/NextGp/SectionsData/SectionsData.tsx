@@ -16,6 +16,6 @@ export const SectionsData = ({ sections }: any) => {
   ]
 
   return (
-    <EmblaCarousel slides={cards} options={{ align: 0 }} />
+    <EmblaCarousel slides={cards} options={{ align: 0, dragFree: true, slidesToScroll: 3, containScroll: 'trimSnaps' }} />
   )
 }

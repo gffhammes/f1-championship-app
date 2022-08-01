@@ -23,7 +23,7 @@ export const CountryFlag = ({ countryName }: Props) => {
         layout='fill'
         objectFit='cover'
         style={{
-          borderRadius: '.5rem'
+          borderRadius: '8px'
         }}
       />
     </Box>

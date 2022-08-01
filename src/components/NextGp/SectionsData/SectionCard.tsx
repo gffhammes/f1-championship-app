@@ -14,8 +14,8 @@ interface ISectionCardProps {
 const sxCardWrapper = {
   display: 'flex',
   flexDirection: 'column',
-  height: '5rem',
-  width: '7rem',
+  height: '5.5rem',
+  width: '7.5rem',
   p: 1,
   borderRadius: 2,
   backgroundColor: '#E9E9E9',
