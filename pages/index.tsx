@@ -1,5 +1,6 @@
 import { Box } from '@mui/material'
 import axios from 'axios'
+import Head from 'next/head';
 import { NextGp } from '../src/components/NextGp/NextGp'
 
 export default function Home({ data }: any) {
@@ -11,9 +12,14 @@ export default function Home({ data }: any) {
   })
 
   return (
-    <Box component='main' sx={{ py: 5 }}>
-      <NextGp nextGp={nextGp}/>
-    </Box>
+    <>
+      <Head>
+        <title>F1 Championship App</title>
+      </Head>
+      <Box component='main' sx={{ py: 5 }}>
+        <NextGp nextGp={nextGp}/>
+      </Box>
+    </>
   )
 }
 
