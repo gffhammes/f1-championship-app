@@ -8,9 +8,6 @@ type Props = {
 }
 
 export const ComingUp = ({ comingUpGps }: Props) => {
-
-  console.log(comingUpGps)
-
   return (
     <Box>      
       <Container>

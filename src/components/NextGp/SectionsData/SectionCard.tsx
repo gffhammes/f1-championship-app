@@ -1,7 +1,8 @@
 import { Box, Typography } from '@mui/material'
 import React from 'react'
+import { getFormattedDate } from '../../../helpers/getFormattedDate';
 
-type Props = {
+interface ISectionCardProps {
   data: {    
     label: string;
     date: string;
@@ -27,7 +28,6 @@ const sxCardWrapperEmphasis = {
   color: '#fff',
 }
 
-
 export const SectionCard = ({
   data: {
     label,
@@ -35,16 +35,8 @@ export const SectionCard = ({
     time,
   },
   emphasis = false,
-}: Props) => {
-  const dateString = `${date}T${time}`;
-  const localeDate = new Date(dateString);
-
-  const formatNumber = (number: number) => {
-    return number.toLocaleString('pt-BR', {minimumIntegerDigits: 2, useGrouping:false})
-  }
-
-  const formattedDate = `${formatNumber(localeDate.getDate())}/${formatNumber(localeDate.getMonth())}`
-  const formattedTime = `${formatNumber(localeDate.getHours())}:${formatNumber(localeDate.getMinutes())}`
+}: ISectionCardProps) => {
+  const { formattedDate, formattedTime } = getFormattedDate(date, time);
 
   return (
     <Box sx={emphasis ? sxCardWrapperEmphasis : sxCardWrapper}>

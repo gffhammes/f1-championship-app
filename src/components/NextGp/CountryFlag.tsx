@@ -14,6 +14,7 @@ export const CountryFlag = ({ countryName }: Props) => {
         height: '4rem',
         width: '4rem',
         borderRadius: 2,
+        border: '1px solid #bcbcbc'
       }}
     >
       <Image

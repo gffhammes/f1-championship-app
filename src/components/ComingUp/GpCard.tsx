@@ -1,6 +1,7 @@
 import { Box, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react'
+import { getFormattedWeekendDates } from '../../helpers/getFormattedDate';
 
 type Props = {
   gpData: any;
@@ -14,14 +15,18 @@ const sxCardWrapper = {
 
 const sxCountryFlag = {
   position: 'relative',
-  height: '4rem',
+  height: '2rem',
   aspectRatio: '1 / 1',
+  borderRadius: 1,
+  border: '1px solid #bcbcbc'
 }
 
 export const GpCard = ({ gpData }: Props) => {
+  const formattedDate = getFormattedWeekendDates(gpData);
+
   return (
     <Box sx={sxCardWrapper}>
-      <Stack direction='row' alignItems='center' >
+      <Stack direction='row' alignItems='flex-start' spacing={2} >
         
         <Box sx={sxCountryFlag}>
           <Image
@@ -29,12 +34,13 @@ export const GpCard = ({ gpData }: Props) => {
             alt=''
             layout='fill'
             objectFit='cover'
+            style={{ borderRadius: '.25rem' }}
           />
         </Box>
         <Box>
-          <Typography fontSize={18} fontWeight={600} >{gpData.raceName}</Typography>
-          <Typography fontSize={12} >{gpData.Circuit.circuitName}</Typography>
-          <Typography fontSize={12} >Gp Dates</Typography>
+          <Typography fontSize={18} fontWeight={600} lineHeight={1}>{gpData.raceName}</Typography>
+          <Typography fontSize={12} lineHeight={1} sx={{ mt: .5, color: 'rgba(54, 54, 54, 0.8)' }}>{gpData.Circuit.circuitName}</Typography>
+          <Typography fontSize={12} fontWeight={600} lineHeight={1} sx={{ mt: 1.25, color: 'rgba(54, 54, 54, 0.8)' }}>{formattedDate}</Typography>
         </Box>
       </Stack>
     </Box>
