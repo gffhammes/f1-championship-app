@@ -3,7 +3,7 @@ import React from 'react'
 import { SectionTitle } from '../Common/SectionTitle'
 import { CountryFlag } from './CountryFlag'
 import { GpInfo, IGpInfoProps } from './GpInfo'
-import { SectionsData } from './SectionsData'
+import { SectionsData } from './SectionsData/SectionsData'
 
 export const NextGp = ({ nextGp }: any) => {
 

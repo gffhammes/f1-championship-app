@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import useEmblaCarousel, { EmblaOptionsType } from 'embla-carousel-react'
-import { Box } from '@mui/material'
+import { Box, Container } from '@mui/material'
 
 type PropType = {
   options?: EmblaOptionsType
@@ -9,17 +9,17 @@ type PropType = {
 
 const sxEmbla = {
   overflow: 'hidden',
+  // px: 3
 }
 
 const sxEmblaContainer = {
   display: 'flex',
-  marginLeft: '1rem',
 }
 
 const sxEmblaSlide = {
   position: 'relative',
   marginRight: '.5rem',
-  flex: '0 0 30%',
+  flex: '0 0 7rem',
 }
 
 export const EmblaCarousel = (props: PropType) => {
@@ -27,7 +27,7 @@ export const EmblaCarousel = (props: PropType) => {
   const [emblaRef] = useEmblaCarousel(options)
 
   return (
-    <Box sx={sxEmbla} ref={emblaRef}>
+    <Container sx={sxEmbla} ref={emblaRef}>
       <Box sx={sxEmblaContainer}>
         {slides.map((slide, index) => (
           <Box sx={sxEmblaSlide} key={index}>
@@ -35,6 +35,6 @@ export const EmblaCarousel = (props: PropType) => {
           </Box>
         ))}
       </Box>
-    </Box>
+    </Container>
   )
 }
