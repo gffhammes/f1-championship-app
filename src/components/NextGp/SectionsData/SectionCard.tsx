@@ -16,7 +16,7 @@ const sxCardWrapper = {
   height: '5rem',
   width: '7rem',
   p: 1,
-  borderRadius: 1,
+  borderRadius: 2,
   backgroundColor: '#E9E9E9',
   color: '#363636',
 }

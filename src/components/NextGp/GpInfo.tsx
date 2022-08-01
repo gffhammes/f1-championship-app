@@ -15,10 +15,10 @@ export const GpInfo = ({
   country,
 }: IGpInfoProps) => {
   return (
-    <Stack>
+    <Stack sx={{ mt: 1, mb: 3 }}>
       <Typography fontSize={32} fontWeight={600}>{name}</Typography>
-      <Typography>{circuit}</Typography>
-      <Typography>{locality} &bull; {country}</Typography>
+      <Typography sx={{ color: 'rgba(54, 54, 54, .6)' }} >{circuit}</Typography>
+      <Typography sx={{ color: 'rgba(54, 54, 54, .6)' }} >{locality} &bull; {country}</Typography>
     </Stack>
   )
 }

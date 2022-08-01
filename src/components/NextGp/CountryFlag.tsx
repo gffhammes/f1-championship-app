@@ -11,9 +11,9 @@ export const CountryFlag = ({ countryName }: Props) => {
     <Box
       sx={{
         position: 'relative',
-        height: '5rem',
-        width: '5rem',
-        borderRadius: 1
+        height: '4rem',
+        width: '4rem',
+        borderRadius: 2,
       }}
     >
       <Image
