@@ -16,7 +16,7 @@ const sxCardWrapper = {
 const sxCountryFlag = {
   position: "relative",
   height: "2rem",
-  aspectRatio: "1 / 1",
+  width: "3rem",
   borderRadius: 1,
   border: "1px solid #bcbcbc",
 };
@@ -24,14 +24,19 @@ const sxCountryFlag = {
 export const GpCard = ({ gpData }: Props) => {
   const formattedDate = getFormattedWeekendDates(gpData);
 
-  console.log(gpData.Circuit.Location.country);
+  const countryName = () => {
+    if (gpData.Circuit.Location.country === "UAE")
+      return "United Arab Emirates";
+
+    return gpData.Circuit.Location.country;
+  };
 
   return (
     <Box sx={sxCardWrapper}>
       <Stack direction="row" alignItems="flex-start" spacing={2}>
         <Box sx={sxCountryFlag}>
           <Image
-            src={`https://countryflagsapi.com/png/${gpData.Circuit.Location.country}`}
+            src={`https://countryflagsapi.com/png/${countryName()}`}
             alt=""
             layout="fill"
             objectFit="cover"
