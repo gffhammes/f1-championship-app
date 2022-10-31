@@ -21,40 +21,45 @@ export const NextGp = ({ nextGp }: any) => {
   const { circuitName, Location } = Circuit;
   const { country, locality } = Location;
 
-  const sections: ISectionCardProps[] = [
-    {
-      label: "Race",
-      date: date,
-      time: time,
-      emphasis: true,
-    },
-    {
-      label: "FP1",
-      date: FirstPractice.date,
-      time: FirstPractice.time,
-    },
-    {
-      label: "FP2",
-      date: SecondPractice.date,
-      time: SecondPractice.time,
-    },
-    ThirdPractice
-      ? {
-          label: "FP3",
-          date: ThirdPractice.date,
-          time: ThirdPractice.time,
-        }
-      : {
-          label: "Sprint",
-          date: Sprint.date,
-          time: Sprint.time,
-        },
-    {
-      label: "Qualifying",
-      date: Qualifying.date,
-      time: Qualifying.time,
-    },
-  ];
+  const race: ISectionCardProps = {
+    label: "Race",
+    date: date,
+    time: time,
+    emphasis: true,
+  };
+
+  const fp1: ISectionCardProps = {
+    label: "FP1",
+    date: FirstPractice.date,
+    time: FirstPractice.time,
+  };
+
+  const fp2: ISectionCardProps = {
+    label: "FP2",
+    date: SecondPractice.date,
+    time: SecondPractice.time,
+  };
+
+  const fp3: ISectionCardProps = {
+    label: "FP3",
+    date: ThirdPractice?.date,
+    time: ThirdPractice?.time,
+  };
+
+  const sprint: ISectionCardProps = {
+    label: "Sprint",
+    date: Sprint?.date,
+    time: Sprint?.time,
+  };
+
+  const qualy: ISectionCardProps = {
+    label: "Qualifying",
+    date: Qualifying.date,
+    time: Qualifying.time,
+  };
+
+  const normalSections = [race, fp1, fp2, fp3, qualy];
+  const sprintSections = [race, fp1, qualy, fp2, sprint];
 
   return (
     <Box
@@ -76,7 +81,7 @@ export const NextGp = ({ nextGp }: any) => {
         />
       </Container>
 
-      <SectionsData cardsData={sections} />
+      <SectionsData cardsData={Sprint ? sprintSections : normalSections} />
     </Box>
   );
 };
