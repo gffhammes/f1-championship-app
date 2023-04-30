@@ -4,12 +4,19 @@ import Head from "next/head";
 import { ChampionshipResults } from "../src/components/ChampionshipResults/ChampionshipResults";
 import { ComingUp } from "../src/components/ComingUp/ComingUp";
 import { NextGp } from "../src/components/NextGp/NextGp";
+import { IRacesData } from "../src/interfaces";
+
+interface IHome {
+  racesData: IRacesData;
+  driverStandings: any;
+  constructorStandings: any;
+}
 
 export default function Home({
   racesData,
   driverStandings,
   constructorStandings,
-}: any) {
+}: IHome) {
   const today = new Date();
 
   const nextGp = racesData.MRData.RaceTable.Races.find((race: any) => {

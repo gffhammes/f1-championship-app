@@ -2,9 +2,11 @@ import { Box, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import { getFormattedWeekendDates } from "../../helpers/getFormattedDate";
+import { CountryFlag } from "../NextGp/CountryFlag";
+import { IRace } from "../../interfaces";
 
 type Props = {
-  gpData: any;
+  gpData: IRace;
 };
 
 const sxCardWrapper = {
@@ -13,36 +15,19 @@ const sxCardWrapper = {
   p: 2,
 };
 
-const sxCountryFlag = {
-  position: "relative",
-  height: "2rem",
-  width: "3rem",
-  borderRadius: 1,
-  border: "1px solid #bcbcbc",
-};
+const sxCountryFlag = {};
 
 export const GpCard = ({ gpData }: Props) => {
   const formattedDate = getFormattedWeekendDates(gpData);
 
-  const countryName = () => {
-    if (gpData.Circuit.Location.country === "UAE")
-      return "United Arab Emirates";
-
-    return gpData.Circuit.Location.country;
-  };
-
   return (
     <Box sx={sxCardWrapper}>
       <Stack direction="row" alignItems="flex-start" spacing={2}>
-        <Box sx={sxCountryFlag}>
-          <Image
-            src={`https://countryflagsapi.com/png/${countryName()}`}
-            alt=""
-            layout="fill"
-            objectFit="cover"
-            style={{ borderRadius: "4px" }}
-          />
-        </Box>
+        <CountryFlag
+          size="small"
+          countryName={gpData.Circuit.Location.country}
+        />
+
         <Box>
           <Typography fontSize={18} fontWeight={600} lineHeight={1}>
             {gpData.raceName}
