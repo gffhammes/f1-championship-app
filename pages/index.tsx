@@ -43,6 +43,12 @@ export async function getServerSideProps() {
   const racesResponse = await axios.get(`${API_URL}/current.json`);
   const racesData = await racesResponse.data;
 
+  // console.log(racesData);
+
+  // return {
+  //   props: {},
+  // };
+
   const driverStandingsResponse = await axios.get(
     `${API_URL}/current/driverStandings.json`
   );

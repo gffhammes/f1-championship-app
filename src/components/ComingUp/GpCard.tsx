@@ -2,6 +2,7 @@ import { Box, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import { getFormattedWeekendDates } from "../../helpers/getFormattedDate";
+import { CountryFlag } from "../NextGp/CountryFlag";
 
 type Props = {
   gpData: any;
@@ -13,13 +14,7 @@ const sxCardWrapper = {
   p: 2,
 };
 
-const sxCountryFlag = {
-  position: "relative",
-  height: "2rem",
-  width: "3rem",
-  borderRadius: 1,
-  border: "1px solid #bcbcbc",
-};
+const sxCountryFlag = {};
 
 export const GpCard = ({ gpData }: Props) => {
   const formattedDate = getFormattedWeekendDates(gpData);
@@ -34,15 +29,8 @@ export const GpCard = ({ gpData }: Props) => {
   return (
     <Box sx={sxCardWrapper}>
       <Stack direction="row" alignItems="flex-start" spacing={2}>
-        <Box sx={sxCountryFlag}>
-          <Image
-            src={`https://countryflagsapi.com/png/${countryName()}`}
-            alt=""
-            layout="fill"
-            objectFit="cover"
-            style={{ borderRadius: "4px" }}
-          />
-        </Box>
+        <CountryFlag size="small" countryName={countryName()} />
+
         <Box>
           <Typography fontSize={18} fontWeight={600} lineHeight={1}>
             {gpData.raceName}
