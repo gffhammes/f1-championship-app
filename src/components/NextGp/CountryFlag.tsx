@@ -13,11 +13,26 @@ const countryFlagDictionary: Record<string, string> = {
   Spain: "ES",
   Monaco: "MC",
   Canada: "CA",
+
+  Bahrain: "BH",
+  "Saudi Arabia": "SA",
+  Australia: "AU",
+  Azerbaijan: "AZ",
+  Austria: "AT",
+  UK: "GB",
+  Hungary: "HU",
+  Belgium: "BE",
+  Netherlands: "NL",
+  Singapore: "SG",
+  Japan: "JP",
+  Qatar: "QA",
+  Mexico: "MX",
+  Brazil: "BR",
+  "United States": "US",
+  UAE: "AE",
 };
 
 export const CountryFlag = ({ countryName, size = "normal" }: Props) => {
-  console.log(countryName);
-
   const sxSize =
     size === "small"
       ? {

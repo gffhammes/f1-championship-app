@@ -3,9 +3,10 @@ import Image from "next/image";
 import React from "react";
 import { getFormattedWeekendDates } from "../../helpers/getFormattedDate";
 import { CountryFlag } from "../NextGp/CountryFlag";
+import { IRace } from "../../interfaces";
 
 type Props = {
-  gpData: any;
+  gpData: IRace;
 };
 
 const sxCardWrapper = {
@@ -19,17 +20,13 @@ const sxCountryFlag = {};
 export const GpCard = ({ gpData }: Props) => {
   const formattedDate = getFormattedWeekendDates(gpData);
 
-  const countryName = () => {
-    if (gpData.Circuit.Location.country === "UAE")
-      return "United Arab Emirates";
-
-    return gpData.Circuit.Location.country;
-  };
-
   return (
     <Box sx={sxCardWrapper}>
       <Stack direction="row" alignItems="flex-start" spacing={2}>
-        <CountryFlag size="small" countryName={countryName()} />
+        <CountryFlag
+          size="small"
+          countryName={gpData.Circuit.Location.country}
+        />
 
         <Box>
           <Typography fontSize={18} fontWeight={600} lineHeight={1}>
